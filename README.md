@@ -1,23 +1,23 @@
-# Elite Educators Backend
+Tutors Hub Backend
 
 Welcome to the backend repository of the Elite Educators Platform. This backend system is designed to support the seamless functioning of the Elite Educators online education hub.
 
-- live site: https://elite-educators-frontend.vercel.app
-- client site: https://github.com/ThisIsKhalid/elite-educators-frontend
+- live site: https://
+- client site: https://
 
 ## Features
 
-- **User Authentication:**
-  - Secure user authentication system to ensure data privacy.
+- User Authentication:
+  - Well Secure user authentication system to ensure pricacy.
 
-- **API Endpoints:**
-  - Well-defined API endpoints for managing courses, users, and other platform functionalities.
+- API Endpoints:
+  - Well-defined API endpoints for managing subjects, users, bookings, payments and reviews functionalities.
 
-- **Data Management:**
-  - Database interactions for efficient course and user data management.
+- Database Management:
+  - Database interactions for efficient subjects, course  and user data management.
 
-- **Security:**
-  - Implementation of security measures to protect user and system data.
+- Security:
+  - Initiates robust security measures to protect user and users credentials.
 
 
 ## Technologies
@@ -63,17 +63,17 @@ Welcome to the backend repository of the Elite Educators Platform. This backend 
 
 ## Getting Started
 
-To get started with the Elite Educators Backend, follow these steps:
+To get started with the Tutors Hub Backend, follow this instructions step by step:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/ThisIsKhalid/elite-educators-backend.git
+   git clone https://
    ```
 
 2. **Install Dependencies:**
    ```bash
-   cd elite-educators-backend
-   yarn install
+   cd tutors-hub-backend
+   npm install
    ```
 
 3. **Set Up Environment Variables:**
@@ -96,7 +96,7 @@ To get started with the Elite Educators Backend, follow these steps:
 
 4. **Run the Application:**
    ```bash
-   yarn dev
+  npm run dev
    ```
 
    The backend will be running at `http://localhost:5000` by default.
