@@ -5,7 +5,7 @@ import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import { IUserProfile } from './user.interface';
 import { UserServices } from './user.service';
-import pick from '../../../utils/pick';
+import pick from '../../../utils/selectedPick';
 import { paginationFields } from '../../../paging/pagination';
 
 const updateUser: RequestHandler = catchAsync(
