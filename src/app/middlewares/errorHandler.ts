@@ -7,7 +7,7 @@ import handleValidationError from '../../errors/validationError';
 import { ZodError } from 'zod';
 import handleCastError from '../../errors/mongooseError';
 import handleZodError from '../../errors/zodError';
-import { IGenericErrorMessage } from '../../types/error';
+import { IGenericErrorMessage } from '../../types/errorType';
 import mongoose from 'mongoose';
 
 type ErrorResponse = {

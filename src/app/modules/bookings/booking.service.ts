@@ -1,5 +1,5 @@
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
-import { IPaginationOptions } from '../../../types/pagination';
+import { IPaginationOptions } from '../../../types/paginationType';
 import { IBooking } from './booking.interface';
 import { Booking } from './booking.model';
 

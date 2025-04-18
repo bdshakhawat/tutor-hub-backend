@@ -2,7 +2,7 @@ import { Request, RequestHandler, Response } from 'express';
 import httpStatus from 'http-status';
 import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
-import pick from '../../../utils/pick';
+import pick from '../../../utils/selectedPick';
 import sendResponse from '../../../utils/sendResponse';
 import { CourseReviewService } from './review.service';
 import { ICourseReview } from './review.interface';

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
-import pick from '../../../utils/pick';
+import pick from '../../../utils/selectedPick';
 import sendResponse from '../../../utils/sendResponse';
 import { IBooking } from './booking.interface';
 import { BookingService } from './booking.service';

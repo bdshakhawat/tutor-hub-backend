@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/statuscodeError';
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
-import { IPaginationOptions } from '../../../types/pagination';
+import { IPaginationOptions } from '../../../types/paginationType';
 import { serviceSearchableFields } from './subject.constant';
 import { IService, IServiceFilters } from './subject.interface';
 import { Service } from './subject.model';
