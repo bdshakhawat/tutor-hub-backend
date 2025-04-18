@@ -4,7 +4,7 @@ import httpStatus from 'http-status';
 import SSLCommerzPayment from 'sslcommerz-lts';
 import { v4 as uuidv4 } from 'uuid';
 import config from '../../../config';
-import ApiError from '../../../errors/ApiError';
+import ApiError from '../../../errors/statuscodeError';
 import { Booking } from '../bookings/booking.model';
 import { Service } from '../subjects/subject.model';
 import { User } from '../user/user.model';

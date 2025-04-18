@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import httpStatus from 'http-status';
 import mongoose, { SortOrder } from 'mongoose';
-import ApiError from '../../../errors/ApiError';
+import ApiError from '../../../errors/statuscodeError';
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
 import { IPaginationOptions } from '../../../types/pagination';
 import { ICourseReview } from './review.interface';

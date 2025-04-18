@@ -1,5 +1,5 @@
 import httpStatus from 'http-status';
-import ApiError from '../../../errors/ApiError';
+import ApiError from '../../../errors/statuscodeError';
 import { ITutorProfile } from './tutors.interface';
 import { Tutor } from './tutors.model';
 

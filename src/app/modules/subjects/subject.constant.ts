@@ -12,7 +12,6 @@ export const serviceSearchableFields = [
   'level',
   'location'
 ]
-
 export const monthsArray = [
   'January',
   'February',
