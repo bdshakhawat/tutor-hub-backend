@@ -4,9 +4,9 @@ import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
 import sendResponse from '../../../utils/sendResponse';
-import { serviceFilterableFields } from './service.constant';
-import { IService } from './service.interface';
-import { ServiceServices } from './service.service';
+import { serviceFilterableFields } from './subject.constant';
+import { IService } from './subject.interface';
+import { ServiceServices } from './subject.service';
 
 const createService: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {

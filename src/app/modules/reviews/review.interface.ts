@@ -1,6 +1,6 @@
 import { Model, Types } from 'mongoose';
 import { IUserProfile } from '../user/user.interface';
-import { IService } from '../subjects/service.interface';
+import { IService } from '../subjects/subject.interface';
 
 export type ICourseReview = {
   studentId: Types.ObjectId | IUserProfile;

@@ -3,9 +3,9 @@ import { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
 import { IPaginationOptions } from '../../../types/pagination';
-import { serviceSearchableFields } from './service.constant';
-import { IService, IServiceFilters } from './service.interface';
-import { Service } from './service.model';
+import { serviceSearchableFields } from './subject.constant';
+import { IService, IServiceFilters } from './subject.interface';
+import { Service } from './subject.model';
 
 const createService = async (payload: IService) => {
   const result = (await Service.create(payload)).populate('instructorId');

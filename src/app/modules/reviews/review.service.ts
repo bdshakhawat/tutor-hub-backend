@@ -4,10 +4,10 @@ import mongoose, { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
 import { IPaginationOptions } from '../../../types/pagination';
-import { ICourseReview } from './serviceReview.interface';
+import { ICourseReview } from './review.interface';
 import { User } from '../user/user.model';
-import { Service } from '../subjects/service.model';
-import { CourseReview } from './serviceReview.model';
+import { Service } from '../subjects/subject.model';
+import { CourseReview } from './review.model';
 
 const addCourseReview = async (
   payload: ICourseReview
