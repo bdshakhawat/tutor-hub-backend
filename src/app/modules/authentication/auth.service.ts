@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import httpStatus from 'http-status';
 import { Secret } from 'jsonwebtoken';
 import config from '../../../config';
-import ApiError from '../../../errors/ApiError';
+import ApiError from '../../../errors/statuscodeError';
 import { jwtHelpers } from '../../../reusableFunctions/jwtHelpers';
 import { IUserProfile } from '../user/user.interface';
 import { User } from '../user/user.model';

@@ -2,11 +2,11 @@
 
 import { ErrorRequestHandler, Request, Response } from 'express';
 import config from '../../config';
-import ApiError from '../../errors/ApiError';
-import handleValidationError from '../../errors/handleValidationError';
+import ApiError from '../../errors/statuscodeError';
+import handleValidationError from '../../errors/validationError';
 import { ZodError } from 'zod';
-import handleCastError from '../../errors/handleCastError';
-import handleZodError from '../../errors/handleZodError';
+import handleCastError from '../../errors/mongooseError';
+import handleZodError from '../../errors/zodError';
 import { IGenericErrorMessage } from '../../types/error';
 import mongoose from 'mongoose';
 
