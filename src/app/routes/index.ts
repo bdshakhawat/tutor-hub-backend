@@ -1,9 +1,9 @@
 import express from 'express';
 import { AuthRoutes } from '../modules/authentication/auth.route';
-import { ServiceRoutes } from '../modules/subjects/service.route';
+import { ServiceRoutes } from '../modules/subjects/subject.route';
 import { UserRoutes } from '../modules/user/user.route';
 import { BookingRoutes } from '../modules/bookings/booking.route';
-import { CourseReviewRoutes } from '../modules/reviews/serviceReview.route';
+import { CourseReviewRoutes } from '../modules/reviews/review.route';
 import { OrderRoutes } from '../modules/orders/order.route';
 import { TutorRoute } from '../modules/tutors/tutor.route';
 

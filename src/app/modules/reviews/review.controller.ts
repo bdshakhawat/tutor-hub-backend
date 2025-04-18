@@ -4,8 +4,8 @@ import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
 import pick from '../../../utils/pick';
 import sendResponse from '../../../utils/sendResponse';
-import { CourseReviewService } from './serviceReview.service';
-import { ICourseReview } from './serviceReview.interface';
+import { CourseReviewService } from './review.service';
+import { ICourseReview } from './review.interface';
 
 const addCourseReview: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IPrice, IService } from './service.interface';
+import { IPrice, IService } from './subject.interface';
 
 const PriceSchema = new Schema<IPrice>({
   amountPerWeek: {

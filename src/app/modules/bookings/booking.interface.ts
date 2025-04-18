@@ -1,6 +1,6 @@
 import { Types } from "mongoose"
 import { IUserProfile } from "../user/user.interface"
-import { IService } from "../subjects/service.interface";
+import { IService } from "../subjects/subject.interface";
 
  type IBatch = {
   amountPerWeek: number;
