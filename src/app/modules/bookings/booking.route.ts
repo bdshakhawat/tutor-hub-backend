@@ -15,12 +15,12 @@ router.post(
 );
 
 router.get(
-  '/',
+  '/show-allbooking',
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BookingController.getallBookings
 );
 
-router.get('/:id', BookingController.getBookingsbyId);
+router.get('/confirm-bookingById/:id', BookingController.getBookingsbyId);
 
 router.get(
   '/users/:userId',
@@ -29,7 +29,7 @@ router.get(
 );
 
 router.delete(
-  '/:id',
+  '/delete-booking/:id',
   auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BookingController.deleteBooking
 );

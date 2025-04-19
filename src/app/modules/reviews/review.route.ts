@@ -11,17 +11,17 @@ router.post(
   CourseReviewController.addCourseReview
 );
 
-router.get('/:subjectId', CourseReviewController.getAllCourseReview);
+router.get('/subject/:subjectId', CourseReviewController.getAllCourseReview);
 
 router.get(
   '/student-review/:studentId',
   CourseReviewController.getReviewsByStudentId
 );
 
-router.patch('/:reviewsId', CourseReviewController.updateCourseReview);
+router.patch('update/:reviewsId', CourseReviewController.updateCourseReview);
 
-router.delete('/:reviewsId', CourseReviewController.deleteCourseReview);
+router.delete('delete/:reviewsId', CourseReviewController.deleteCourseReview);
 
-router.get('/', CourseReviewController.getAllReviews);
+router.get('/allreviews', CourseReviewController.getAllReviews);
 
 export const ReviewsRoutes = router;

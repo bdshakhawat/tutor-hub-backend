@@ -7,7 +7,7 @@ import sendResponse from '../../../utils/sendResponse';
 import { IBooking } from './booking.interface';
 import { BookingService } from './booking.service';
 
-const addBooking = catchAsync(async (req: Request, res: Response) => {
+const confirmBooking = catchAsync(async (req: Request, res: Response) => {
   const data = req.body;
   const result = await BookingService.addBooking(data);
 
@@ -19,7 +19,7 @@ const addBooking = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getallBookings = catchAsync(async (req: Request, res: Response) => {
+const showallBookings = catchAsync(async (req: Request, res: Response) => {
   const paginationOptions = selectPick(req.query, paginationFields);
 
   const result = await BookingService.getallBookings(paginationOptions);
@@ -33,7 +33,7 @@ const getallBookings = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getAllBookingByUserId = catchAsync(
+const showallBookingByUserId = catchAsync(
   async (req: Request, res: Response) => {
     const userId = req.params.userId;
     const paginationOptions = selectPick(req.query, paginationFields);
@@ -66,7 +66,7 @@ const deleteBooking = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const bookingAccepts = catchAsync(async (req: Request, res: Response) => {
+const bookingConfirmation = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
 
   const result = await BookingService.bookingAccepts(id);
@@ -93,10 +93,10 @@ const getBookingsbyId = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const BookingController = {
-  addBooking,
-  getallBookings,
-  getAllBookingByUserId,
+  addBooking: confirmBooking,
+  getallBookings: showallBookings,
+  getAllBookingByUserId: showallBookingByUserId,
   deleteBooking,
-  bookingAccepts,
+  bookingAccepts: bookingConfirmation,
   getBookingsbyId,
 };

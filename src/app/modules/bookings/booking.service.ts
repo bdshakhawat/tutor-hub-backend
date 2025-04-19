@@ -3,13 +3,13 @@ import { IPaginations } from '../../../types/paginationType';
 import { IBooking } from './booking.interface';
 import { Booking } from './booking.model';
 
-const addBooking = async (data: IBooking): Promise<IBooking> => {
+const confirmBooking = async (data: IBooking): Promise<IBooking> => {
   const result = await Booking.create(data);
 
   return result;
 };
 
-const getallBookings = async (
+const showallBookings = async (
   paginationOptions: IPaginations
 ) => {
   const { limit, page, skip } =
@@ -34,7 +34,7 @@ const getallBookings = async (
   };
 };
 
-const getAllBookingByUserId = async (
+const showallBookingByUserId = async (
   id: string,
   paginationOptions: IPaginations
 ) => {
@@ -75,7 +75,7 @@ const deleteBooking = async (id: string): Promise<IBooking | null> => {
   return result;
 };
 
-const bookingAccepts = async (id: string): Promise<IBooking | null> => {
+const bookingConfirmation = async (id: string): Promise<IBooking | null> => {
   const result = await Booking.findByIdAndUpdate(
     id,
     {
@@ -99,11 +99,11 @@ const getBookingsbyId = async (id: string): Promise<IBooking | null> => {
 };
 
 export const BookingService = {
-  addBooking,
-  getallBookings,
-  getAllBookingByUserId,
+  addBooking: confirmBooking,
+  getallBookings: showallBookings,
+  getAllBookingByUserId: showallBookingByUserId,
   updateBooking,
   deleteBooking,
-  bookingAccepts,
+  bookingAccepts: bookingConfirmation,
   getBookingsbyId,
 };
