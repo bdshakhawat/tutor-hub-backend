@@ -1,6 +1,6 @@
 //['page','limit','sortBy','sortOrder']
 
-const pick = <T extends Record<string, unknown>, k extends keyof T>(
+const selectPick = <T extends Record<string, unknown>, k extends keyof T>(
   obj: T,
   keys: k[]
 ): Partial<T> => {
@@ -14,4 +14,4 @@ const pick = <T extends Record<string, unknown>, k extends keyof T>(
   return finalObj;
 };
 
-export default pick;
+export default selectPick;

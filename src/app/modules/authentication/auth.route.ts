@@ -1,5 +1,5 @@
 import express from 'express';
-import validateRequest from '../../middlewares/validateRequest';
+import requestValidating from '../../middlewares/validateRequest';
 import { AuthControllers } from './auth.controller';
 import { AuthValidations } from './auth.validation';
 
@@ -13,8 +13,8 @@ router.post(
 
 router.post(
   '/signin',
-  validateRequest(AuthValidations.loginUserZodSchema),
+  requestValidating(AuthValidations.loginUserZodSchema),
   AuthControllers.loginUser
 );
 
-export const AuthRoutes = router;
+export const AuthenticationRoutes = router;

@@ -2,7 +2,7 @@ import { Request, RequestHandler, Response } from 'express';
 import httpStatus from 'http-status';
 import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
-import pick from '../../../utils/selectedPick';
+import selectPick from '../../../utils/selectedPick';
 import sendResponse from '../../../utils/sendResponse';
 import { serviceFilterableFields } from './subject.constant';
 import { IService } from './subject.interface';
@@ -71,8 +71,8 @@ const deleteService: RequestHandler = catchAsync(
 );
 
 const getAllService = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.query, serviceFilterableFields);
-  const paginationOptions = pick(req.query, paginationFields);
+  const filters = selectPick(req.query, serviceFilterableFields);
+  const paginationOptions = selectPick(req.query, paginationFields);
 
   const result = await ServiceServices.getAllService(
     filters,

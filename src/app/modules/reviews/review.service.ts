@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import mongoose, { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/statuscodeError';
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
-import { IPaginationOptions } from '../../../types/paginationType';
+import { IPaginations } from '../../../types/paginationType';
 import { ICourseReview } from './review.interface';
 import { User } from '../user/user.model';
 import { Service } from '../subjects/subject.model';
@@ -70,7 +70,7 @@ const getSingleCourseReview = async (
 
 // : courseid
 const getAllCourseReviews = async (
-  paginationOptions: IPaginationOptions,
+  paginationOptions: IPaginations,
   courseId: string
 ) => {
   const { limit, page, skip } =
@@ -95,7 +95,7 @@ const getAllCourseReviews = async (
 };
 
 const getReviewsByStudentId = async (
-  paginationOptions: IPaginationOptions,
+  paginationOptions: IPaginations,
   studentId: string
 ) => {
   const { limit, page, skip } =
@@ -143,7 +143,7 @@ const deleteCourseReview = async (
 
 
 const getAllReviews = async (
-  paginationOptions: IPaginationOptions,
+  paginationOptions: IPaginations,
 ) => {
   const { limit, page, skip, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOptions);

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
-import pick from '../../../utils/selectedPick';
+import selectPick from '../../../utils/selectedPick';
 import sendResponse from '../../../utils/sendResponse';
 import { IBooking } from './booking.interface';
 import { BookingService } from './booking.service';
@@ -20,7 +20,7 @@ const addBooking = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getallBookings = catchAsync(async (req: Request, res: Response) => {
-  const paginationOptions = pick(req.query, paginationFields);
+  const paginationOptions = selectPick(req.query, paginationFields);
 
   const result = await BookingService.getallBookings(paginationOptions);
 
@@ -36,7 +36,7 @@ const getallBookings = catchAsync(async (req: Request, res: Response) => {
 const getAllBookingByUserId = catchAsync(
   async (req: Request, res: Response) => {
     const userId = req.params.userId;
-    const paginationOptions = pick(req.query, paginationFields);
+    const paginationOptions = selectPick(req.query, paginationFields);
 
     const result = await BookingService.getAllBookingByUserId(
       userId,

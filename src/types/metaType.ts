@@ -1,6 +1,6 @@
-import { IGenericErrorMessage } from './errorType';
+import { ICommonErrorMessage } from './errorType';
 
-export type IGenericResponse<T> = {
+export type ICommonResponse<T> = {
   meta: {
     page: number;
     limit: number;
@@ -9,8 +9,8 @@ export type IGenericResponse<T> = {
   data: T;
 };
 
-export type IGenericErrorResponse = {
+export type ICommonErrorResponse = {
   statusCode: number;
   message: string;
-  errorMessages: IGenericErrorMessage[];
+  errorMessages: ICommonErrorMessage[];
 };

@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post('/create-tutor', TutorController.createTutor);
 
-router.patch('/tutor-status-change/:id', TutorController.tutorStatusChange);
+router.patch('/change-tutor-status/:id', TutorController.tutorStatusChange);
 
-export const TutorRoute = router;
+export const TutorsRoute = router;

@@ -1,5 +1,5 @@
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
-import { IPaginationOptions } from '../../../types/paginationType';
+import { IPaginations } from '../../../types/paginationType';
 import { IBooking } from './booking.interface';
 import { Booking } from './booking.model';
 
@@ -10,7 +10,7 @@ const addBooking = async (data: IBooking): Promise<IBooking> => {
 };
 
 const getallBookings = async (
-  paginationOptions: IPaginationOptions
+  paginationOptions: IPaginations
 ) => {
   const { limit, page, skip } =
     paginationHelpers.calculatePagination(paginationOptions);
@@ -36,7 +36,7 @@ const getallBookings = async (
 
 const getAllBookingByUserId = async (
   id: string,
-  paginationOptions: IPaginationOptions
+  paginationOptions: IPaginations
 ) => {
   const { limit, page, skip } =
     paginationHelpers.calculatePagination(paginationOptions);

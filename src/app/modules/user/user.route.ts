@@ -1,7 +1,7 @@
 import express from 'express';
 import { ENUM_USER_ROLE } from '../../../userRole/user';
 import auth from '../../middlewares/auth';
-import validateRequest from '../../middlewares/validateRequest';
+import requestValidating from '../../middlewares/validateRequest';
 import { UserControllers } from './user.controller';
 import { UserValidations } from './user.validation';
 
@@ -9,7 +9,7 @@ const router = express.Router();
 // Update user 
 router.patch(
   '/:id',
-  validateRequest(UserValidations.updateUser),
+  requestValidating(UserValidations.updateUser),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.USER),
   UserControllers.updateUser
 );
@@ -31,12 +31,11 @@ router.get(
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   UserControllers.getAllUser
 );
-
-//! super_admin----------------------------------------------------------------
+// Super Admin can change user role
 router.patch(
-  '/change-role/:id',
+  '/role-change/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN),
   UserControllers.changeRole
 );
 
-export const UserRoutes = router;
+export const UsersRoutes = router;

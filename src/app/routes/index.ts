@@ -1,42 +1,42 @@
 import express from 'express';
-import { AuthRoutes } from '../modules/authentication/auth.route';
-import { ServiceRoutes } from '../modules/subjects/subject.route';
-import { UserRoutes } from '../modules/user/user.route';
-import { BookingRoutes } from '../modules/bookings/booking.route';
-import { CourseReviewRoutes } from '../modules/reviews/review.route';
-import { OrderRoutes } from '../modules/orders/order.route';
-import { TutorRoute } from '../modules/tutors/tutor.route';
+import { AuthenticationRoutes } from '../modules/authentication/auth.route';
+import { SubjectsRoutes } from '../modules/subjects/subject.route';
+import { UsersRoutes } from '../modules/user/user.route';
+import { BookingsRoutes } from '../modules/bookings/booking.route';
+import { ReviewsRoutes } from '../modules/reviews/review.route';
+import { PaymentOrderRoutes } from '../modules/ordersPayment/order.route';
+import { TutorsRoute } from '../modules/tutors/tutor.route';
 
 const router = express.Router();
 
 const moduleRoutes = [
   {
     path: '/auth',
-    routes: AuthRoutes,
+    routes: AuthenticationRoutes,
   },
   {
     path: '/users',
-    routes: UserRoutes,
+    routes: UsersRoutes,
   },
   {
-    path: '/services',
-    routes: ServiceRoutes,
+    path: '/subjects',
+    routes: SubjectsRoutes,
   },
   {
     path: '/bookings',
-    routes: BookingRoutes,
+    routes: BookingsRoutes,
   },
   {
     path: '/reviews',
-    routes: CourseReviewRoutes,
+    routes: ReviewsRoutes,
   },
   {
     path: '/orders',
-    routes: OrderRoutes,
+    routes: PaymentOrderRoutes,
   },
   {
     path: '/tutors',
-    routes: TutorRoute,
+    routes: TutorsRoute,
   },
 ];
 
