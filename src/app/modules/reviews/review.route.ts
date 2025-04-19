@@ -1,27 +1,27 @@
 import express from 'express';
-import validateRequest from '../../middlewares/validateRequest';
+import requestValidating from '../../middlewares/validateRequest';
 import { CourseReviewController } from './review.controller';
 import { CourseReviewValidation } from './review.validation';
 
 const router = express.Router();
 
 router.post(
-  '/add-review',
-  validateRequest(CourseReviewValidation.addCourseReviewSchema),
+  '/add-reviews',
+  requestValidating(CourseReviewValidation.addCourseReviewSchema),
   CourseReviewController.addCourseReview
 );
 
-router.get('/:courseId', CourseReviewController.getAllCourseReview);
+router.get('/:subjectId', CourseReviewController.getAllCourseReview);
 
 router.get(
-  '/student-reviews/:studentId',
+  '/student-review/:studentId',
   CourseReviewController.getReviewsByStudentId
 );
 
-router.patch('/:reviewId', CourseReviewController.updateCourseReview);
+router.patch('/:reviewsId', CourseReviewController.updateCourseReview);
 
-router.delete('/:reviewId', CourseReviewController.deleteCourseReview);
+router.delete('/:reviewsId', CourseReviewController.deleteCourseReview);
 
 router.get('/', CourseReviewController.getAllReviews);
 
-export const CourseReviewRoutes = router;
+export const ReviewsRoutes = router;

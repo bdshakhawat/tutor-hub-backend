@@ -5,7 +5,7 @@ import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import { IUserProfile } from './user.interface';
 import { UserServices } from './user.service';
-import pick from '../../../utils/selectedPick';
+import selectPick from '../../../utils/selectedPick';
 import { paginationFields } from '../../../paging/pagination';
 
 const updateUser: RequestHandler = catchAsync(
@@ -57,7 +57,7 @@ const getUserProfile: RequestHandler = catchAsync(
 
 const getAllUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
-    const paginationOptions = pick(req.query, paginationFields);
+    const paginationOptions = selectPick(req.query, paginationFields);
 
     const result = await UserServices.getAllUser(paginationOptions);
 
@@ -71,7 +71,7 @@ const getAllUser: RequestHandler = catchAsync(
   }
 );
 
-//! super_admin----------------------------------------------------------------
+// Super Admin can change the role of a user
 const changeRole: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const id = req.params.id;

@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/statuscodeError';
 import { paginationHelpers } from '../../../reusableFunctions/paginationHelper';
-import { IPaginationOptions } from '../../../types/paginationType';
+import { IPaginations } from '../../../types/paginationType';
 import { IUserProfile } from './user.interface';
 import { User } from './user.model';
 
@@ -50,7 +50,7 @@ const getUserProfile = async (id: string): Promise<IUserProfile | null> => {
   return result;
 };
 
-const getAllUser = async (paginationOptions: IPaginationOptions) => {
+const getAllUser = async (paginationOptions: IPaginations) => {
   const { limit, page, skip, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOptions);
 
@@ -75,8 +75,7 @@ const getAllUser = async (paginationOptions: IPaginationOptions) => {
   };
 };
 
-//! super_admin----------------------------------------------------------------
-// change role user to admin, admin to user
+  // Super admin can change role user to admin, admin to user
 const changeRole = async (id: string) => {
   const isExist = await User.findById(id);
 

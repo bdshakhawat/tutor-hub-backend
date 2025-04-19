@@ -5,18 +5,18 @@ import config from '../../config';
 import ApiError from '../../errors/statuscodeError';
 import handleValidationError from '../../errors/validationError';
 import { ZodError } from 'zod';
-import handleCastError from '../../errors/mongooseError';
+import handleMongooseError from '../../errors/mongooseError';
 import handleZodError from '../../errors/zodError';
-import { IGenericErrorMessage } from '../../types/errorType';
+import { ICommonErrorMessage } from '../../types/errorType';
 import mongoose from 'mongoose';
 
-type ErrorResponse = {
+type StatusErrorResponse = {
   statusCode: number;
   message: string;
-  errorMessages: IGenericErrorMessage[];
+  errorMessages: ICommonErrorMessage[];
 };
 
-type PossibleErrors = 
+type OtherErrors = 
   | ZodError
   | mongoose.Error.ValidationError
   | mongoose.Error.CastError
@@ -25,36 +25,36 @@ type PossibleErrors =
   | Error
   | { name: string; [key: string]: unknown };
 
-const errorLogger = (error: PossibleErrors): void => {
+const handleErrorLogger = (error: OtherErrors): void => {
   const logMessage = config.env === 'development' 
     ? { error } 
     : error;
-  console.error('[GlobalErrorHandler]', logMessage);
+  console.error('[allErrorHandler]', logMessage);
 };
 
-const initializeErrorResponse = (): ErrorResponse => ({
+const initiateErrorResponse = (): StatusErrorResponse => ({
   statusCode: 500,
   message: 'Something went wrong!',
   errorMessages: [],
 });
 
-const isValidationError = (error: PossibleErrors): error is mongoose.Error.ValidationError => {
+const validatingError = (error: OtherErrors): error is mongoose.Error.ValidationError => {
   return error instanceof mongoose.Error && error.name === 'ValidationError';
 };
 
-const isCastError = (error: PossibleErrors): error is mongoose.Error.CastError => {
+const isCastError = (error: OtherErrors): error is mongoose.Error.CastError => {
   return error instanceof mongoose.Error && error.name === 'CastError';
 };
 
-const handleSpecificErrors = (error: PossibleErrors): ErrorResponse | null => {
-  if (isValidationError(error)) {
+const handleSpecificErrors = (error: OtherErrors): StatusErrorResponse | null => {
+  if (validatingError(error)) {
     return handleValidationError(error);
   }
   if (error instanceof ZodError) {
     return handleZodError(error);
   }
   if (isCastError(error)) {
-    return handleCastError(error);
+    return handleMongooseError(error);
   }
   if (error instanceof ApiError) {
     return {
@@ -73,14 +73,14 @@ const handleSpecificErrors = (error: PossibleErrors): ErrorResponse | null => {
   return null;
 };
 
-const globalErrorHandler: ErrorRequestHandler = (
-  error: PossibleErrors,
+const allErrorHandler: ErrorRequestHandler = (
+  error: OtherErrors,
   req: Request,
   res: Response
 ) => {
-  errorLogger(error);
+  handleErrorLogger(error);
 
-  const response = handleSpecificErrors(error) || initializeErrorResponse();
+  const response = handleSpecificErrors(error) || initiateErrorResponse();
 
   res.status(response.statusCode).json({
     success: false,
@@ -90,5 +90,5 @@ const globalErrorHandler: ErrorRequestHandler = (
   });
 };
 
-export default globalErrorHandler;
+export default allErrorHandler;
 

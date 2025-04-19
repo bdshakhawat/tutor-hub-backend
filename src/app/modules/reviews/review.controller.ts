@@ -2,7 +2,7 @@ import { Request, RequestHandler, Response } from 'express';
 import httpStatus from 'http-status';
 import { paginationFields } from '../../../paging/pagination';
 import catchAsync from '../../../utils/catchAsync';
-import pick from '../../../utils/selectedPick';
+import selectPick from '../../../utils/selectedPick';
 import sendResponse from '../../../utils/sendResponse';
 import { CourseReviewService } from './review.service';
 import { ICourseReview } from './review.interface';
@@ -36,7 +36,7 @@ const getSingleCourseReview: RequestHandler = catchAsync(
 );
 
 const getAllCourseReview = catchAsync(async (req: Request, res: Response) => {
-  const paginationOptions = pick(req.query, paginationFields);
+  const paginationOptions = selectPick(req.query, paginationFields);
   const courseId = req.params.courseId;
 
   const result = await CourseReviewService.getAllCourseReviews(
@@ -54,7 +54,7 @@ const getAllCourseReview = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getReviewsByStudentId = catchAsync(async (req: Request, res: Response) => {
-  const paginationOptions = pick(req.query, paginationFields);
+  const paginationOptions = selectPick(req.query, paginationFields);
   const studentId = req.params.studentId;
 
   const result = await CourseReviewService.getReviewsByStudentId(
@@ -103,7 +103,7 @@ const deleteCourseReview = catchAsync(async (req: Request, res: Response) => {
 
 
 const getAllReviews = catchAsync(async (req: Request, res: Response) => {
-  const paginationOptions = pick(req.query, paginationFields);
+  const paginationOptions = selectPick(req.query, paginationFields);
 
   const result = await CourseReviewService.getAllReviews(paginationOptions);
 

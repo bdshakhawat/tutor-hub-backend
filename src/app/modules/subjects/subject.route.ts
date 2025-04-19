@@ -1,22 +1,22 @@
 import express from 'express';
 import { ENUM_USER_ROLE } from '../../../userRole/user';
 import auth from '../../middlewares/auth';
-import validateRequest from '../../middlewares/validateRequest';
+import requestValidating from '../../middlewares/validateRequest';
 import { ServiceControllers } from './subject.controller';
 import { ServiceValidations } from './subject.validation';
 
 const router = express.Router();
 
 router.post(
-  '/add-service',
-  validateRequest(ServiceValidations.addServiceSchema),
+  '/add-subject',
+  requestValidating(ServiceValidations.addServiceSchema),
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceControllers.createService
 );
 
 router.patch(
-  '/update-service/:id',
-  validateRequest(ServiceValidations.updateServiceSchema),
+  '/update-subject/:id',
+  requestValidating(ServiceValidations.updateServiceSchema),
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceControllers.updateService
 );
@@ -31,4 +31,4 @@ router.delete(
 
 router.get('/', ServiceControllers.getAllService);
 
-export const ServiceRoutes = router;
+export const SubjectsRoutes = router;

@@ -6,7 +6,7 @@ import sendResponse from '../../../utils/sendResponse';
 import { ILoginUserResponse } from './auth.interface';
 import { AuthServices } from './auth.service';
 
-const createUser: RequestHandler = catchAsync(
+const creatingUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const userData = req.body;
     // console.log(userData);
@@ -54,6 +54,6 @@ const loginUser: RequestHandler = catchAsync(
 );
 
 export const AuthControllers = {
-  createUser,
+  createUser: creatingUser,
   loginUser,
 };

@@ -4,7 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import httpStatus from 'http-status';
 
-import globalErrorHandler from './app/middlewares/errorHandler';
+import allErrorHandler from './app/middlewares/errorHandler';
 import routes from './app/routes';
 
 const app: Application = express();
@@ -29,7 +29,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/v1', routes);
 
 // Global error handler
-app.use(globalErrorHandler);
+app.use(allErrorHandler);
 
 // Handle 404 errors
 app.use((req: Request, res: Response) => {
