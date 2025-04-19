@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import config from '../../../config';
 import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
-import { ILoginUserResponse } from './auth.interface';
+import { IUserLoginResponse } from './auth.interface';
 import { AuthServices } from './auth.service';
 
 const creatingUser: RequestHandler = catchAsync(
@@ -21,7 +21,7 @@ const creatingUser: RequestHandler = catchAsync(
 
     res.cookie('refreshToken', refreshToken, cookieOptions);
 
-    sendResponse<ILoginUserResponse>(res, {
+    sendResponse<IUserLoginResponse>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'User created successfully!',
@@ -30,7 +30,7 @@ const creatingUser: RequestHandler = catchAsync(
   }
 );
 
-const loginUser: RequestHandler = catchAsync(
+const userLogin: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const userData = req.body;
     const result = await AuthServices.loginUser(userData);
@@ -44,7 +44,7 @@ const loginUser: RequestHandler = catchAsync(
 
     res.cookie('refreshToken', refreshToken, cookieOptions);
 
-    sendResponse<ILoginUserResponse>(res, {
+    sendResponse<IUserLoginResponse>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'User logged in successfully!',
@@ -53,7 +53,7 @@ const loginUser: RequestHandler = catchAsync(
   }
 );
 
-export const AuthControllers = {
+export const AuthenticationControllers = {
   createUser: creatingUser,
-  loginUser,
+  loginUser: userLogin,
 };

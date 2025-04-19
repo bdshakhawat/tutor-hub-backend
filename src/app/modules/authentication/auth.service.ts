@@ -6,11 +6,11 @@ import ApiError from '../../../errors/statuscodeError';
 import { jwtHelpers } from '../../../reusableFunctions/jwtHelpers';
 import { IUserProfile } from '../user/user.interface';
 import { User } from '../user/user.model';
-import { ILoginUser, ILoginUserResponse } from './auth.interface';
+import { IUserLogin, IUserLoginResponse } from './auth.interface';
 
 const createUer = async (
   payload: IUserProfile
-): Promise<ILoginUserResponse> => {
+): Promise<IUserLoginResponse> => {
   const user = await User.create(payload);
 
   const { id, email, role } = user;
@@ -33,7 +33,7 @@ const createUer = async (
   };
 };
 
-const loginUser = async (userData: ILoginUser): Promise<ILoginUserResponse> => {
+const loginUser = async (userData: IUserLogin): Promise<IUserLoginResponse> => {
   const { email: loggedEmail, password } = userData;
 
   const isUserExist = await User.findOne(

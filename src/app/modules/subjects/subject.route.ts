@@ -21,14 +21,14 @@ router.patch(
   ServiceControllers.updateService
 );
 
-router.get('/:id', ServiceControllers.getSingleService);
+router.get('single-subject/:id', ServiceControllers.getSingleService);
 
 router.delete(
-  '/:id',
+  'delete/:id',
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceControllers.deleteService
 );
 
-router.get('/', ServiceControllers.getAllService);
+router.get('/allsubjects', ServiceControllers.getAllService);
 
 export const SubjectsRoutes = router;
