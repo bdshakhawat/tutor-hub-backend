@@ -15,7 +15,7 @@ router.post(
 );
 
 router.get(
-  '/show-allbooking',
+  '/allbooking',
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BookingController.getallBookings
 );
@@ -23,13 +23,13 @@ router.get(
 router.get('/confirm-bookingById/:id', BookingController.getBookingsbyId);
 
 router.get(
-  '/users/:userId',
+  '/:id',
   auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BookingController.getAllBookingByUserId
 );
 
 router.delete(
-  '/delete-booking/:id',
+  '/:id',
   auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BookingController.deleteBooking
 );
