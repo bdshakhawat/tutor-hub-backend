@@ -21,10 +21,10 @@ router.patch(
   ServiceControllers.updateService
 );
 
-router.get('single-subject/:id', ServiceControllers.getSingleService);
+router.get('/single-subject/:id', ServiceControllers.getSingleService);
 
 router.delete(
-  'delete/:id',
+  '/delete/:id',
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceControllers.deleteService
 );

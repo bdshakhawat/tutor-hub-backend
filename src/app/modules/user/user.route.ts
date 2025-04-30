@@ -8,20 +8,20 @@ import { UserValidations } from './user.validation';
 const router = express.Router();
 // Update user 
 router.patch(
-  'update-user/:id',
+  '/:id',
   requestValidating(UserValidations.updateUser),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.USER),
   UserControllers.updateUser
 );
 // Delete user
 router.delete(
-  'delete-user/:id',
+  ':id',
   auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   UserControllers.deleteUser
 );
 // Get Single user profile
 router.get(
-  'user-profie/:id',
+  '/:id',
   auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   UserControllers.getUserProfile
 );

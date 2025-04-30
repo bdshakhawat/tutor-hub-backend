@@ -1,13 +1,14 @@
 import express from 'express';
-import requestValidating from '../../middlewares/validateRequest';
+// import requestValidating from '../../middlewares/validateRequest';
 import { CourseReviewController } from './review.controller';
+import requestValidating from '../../middlewares/validateRequest';
 import { CourseReviewValidation } from './review.validation';
 
 const router = express.Router();
 
 router.post(
-  '/add-reviews',
-  requestValidating(CourseReviewValidation.addCourseReviewSchema),
+  '/',
+  requestValidating  (CourseReviewValidation.addCourseReviewSchema),
   CourseReviewController.addCourseReview
 );
 
@@ -18,10 +19,10 @@ router.get(
   CourseReviewController.getReviewsByStudentId
 );
 
-router.patch('update/:reviewsId', CourseReviewController.updateCourseReview);
+router.patch('/:reviewsId', CourseReviewController.updateCourseReview);
 
-router.delete('delete/:reviewsId', CourseReviewController.deleteCourseReview);
+router.delete('/:reviewsId', CourseReviewController.deleteCourseReview);
 
-router.get('/allreviews', CourseReviewController.getAllReviews);
+router.get('/', CourseReviewController.getAllReviews);
 
 export const ReviewsRoutes = router;

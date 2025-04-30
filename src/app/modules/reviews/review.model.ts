@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { CourseReviewModel, ICourseReview } from './serviceReview.interface';
+import { CourseReviewModel, ICourseReview } from './review.interface';
 
 const courseReviewSchema = new Schema<ICourseReview, CourseReviewModel>(
   {

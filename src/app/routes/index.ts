@@ -1,8 +1,9 @@
+
 import express from 'express';
 import { AuthenticationRoutes } from '../modules/authentication/auth.route';
 import { SubjectsRoutes } from '../modules/subjects/subject.route';
 import { UsersRoutes } from '../modules/user/user.route';
-import { BookingsRoutes } from '../modules/bookings/booking.route';
+import { BookingRoutes } from '../modules/bookings/booking.route';
 import { ReviewsRoutes } from '../modules/reviews/review.route';
 import { PaymentOrderRoutes } from '../modules/ordersPayment/order.route';
 import { TutorsRoute } from '../modules/tutors/tutor.route';
@@ -12,33 +13,81 @@ const router = express.Router();
 const moduleRoutes = [
   {
     path: '/auth',
-    routes: AuthenticationRoutes,
+    route: AuthenticationRoutes,
   },
   {
     path: '/users',
-    routes: UsersRoutes,
+    route: UsersRoutes,
   },
   {
     path: '/subjects',
-    routes: SubjectsRoutes,
+    route: SubjectsRoutes,
   },
   {
     path: '/bookings',
-    routes: BookingsRoutes,
+    route: BookingRoutes,
   },
   {
     path: '/reviews',
-    routes: ReviewsRoutes,
+    route: ReviewsRoutes,
   },
   {
     path: '/orders',
-    routes: PaymentOrderRoutes,
+    route: PaymentOrderRoutes,
   },
   {
     path: '/tutors',
-    routes: TutorsRoute,
+    route: TutorsRoute,
   },
 ];
 
-moduleRoutes.forEach(route => router.use(route.path, route.routes));
+moduleRoutes.forEach(route => router.use(route.path, route.route));
+
 export default router;
+
+
+
+// import express from 'express';
+// import { AuthenticationRoutes } from '../modules/authentication/auth.route';
+// import { SubjectsRoutes } from '../modules/subjects/subject.route';
+// import { UsersRoutes } from '../modules/user/user.route';
+// import { BookingsRoutes } from '../modules/bookings/booking.route';
+// import { ReviewsRoutes } from '../modules/reviews/review.route';
+// import { PaymentOrderRoutes } from '../modules/ordersPayment/order.route';
+// import { TutorsRoute } from '../modules/tutors/tutor.route';
+
+// const router = express.Router();
+
+// const moduleRoutes = [
+//   {
+//     path: '/auth',
+//     routes: AuthenticationRoutes,
+//   },
+//   {
+//     path: '/users',
+//     routes: UsersRoutes,
+//   },
+//   {
+//     path: '/subjects',
+//     routes: SubjectsRoutes,
+//   },
+//   {
+//     path: '/bookings',
+//     routes: BookingsRoutes,
+//   },
+//   {
+//     path: '/reviews',
+//     routes: ReviewsRoutes,
+//   },
+//   {
+//     path: '/orders',
+//     routes: PaymentOrderRoutes,
+//   },
+//   {
+//     path: '/tutors',
+//     routes: TutorsRoute,
+//   },
+// ];
+
+// moduleRoutes.forEach(route => router.use(route.path, route.routes));
+// export default router;
